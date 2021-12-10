@@ -5,12 +5,12 @@ class HomePage extends StatelessWidget {
   
  List<String> imagePath = [
    "images/salmon.jpg",
-   "images/salmon.jpg",
-   "images/salmon.jpg",
-   "images/salmon.jpg",
-   "images/salmon.jpg",
-   "images/salmon.jpg",
-   "images/salmon.jpg"
+   "images/shrimp.jpg",
+   "images/nigiri.jpg",
+   "images/tuna.jpg",
+   "images/combos.png",
+   "images/salad.jpeg",
+   "images/sauces.jpg"
  ];
 
  List<String> categories= ["Salmon","Shrimp","Ngiri","Tuna","Combos","Salads","Sauces"];
@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
                   ),
                   CircleAvatar(
                     radius: 30,
-                   
+                    backgroundImage: AssetImage("images/salmon.jpg"),
                   ),
                   SizedBox(height: 15,),
                   Text(
@@ -174,7 +174,8 @@ class HomePage extends StatelessWidget {
                       )
                     
                    ],
-                 )
+                 ),
+                 SizedBox(width: 10,), //space between categories
                ]
              );
              }),
