@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
-
+import 'package:sushi_throne/featured_sushi.dart';
+import 'package:sushi_throne/models/Product.dart';
 class HomePage extends StatelessWidget {
   
  List<String> imagePath = [
@@ -163,6 +164,7 @@ class HomePage extends StatelessWidget {
                          image: DecorationImage(
                            image: AssetImage(imagePath[index]),
                            fit: BoxFit.cover,
+                           
                          ),
                        ),
                      ),
@@ -176,11 +178,24 @@ class HomePage extends StatelessWidget {
                    ],
                  ),
                  SizedBox(width: 10,), //space between categories
-               ]
+               ],
              );
-             }),
+            }),
           
-        )
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("Featured Rolls", style: TextStyle( fontWeight: FontWeight.bold),
+            ),
+            Text("See all",
+            style: TextStyle(color: Colors.blueGrey[800]),
+            )
+          ],
+        ),
+        SizedBox(height: 20,),
+        // ignore: prefer_const_constructors
+        FeaturedSushi(p: null,)
         ],
         ),
       
