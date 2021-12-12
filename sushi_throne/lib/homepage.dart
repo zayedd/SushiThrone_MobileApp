@@ -194,12 +194,16 @@ class HomePage extends StatelessWidget {
           ],
         ),
         SizedBox(height: 20,),
+        
         // ignore: prefer_const_constructors
-        FeaturedSushi(p: null,)
+        FeaturedSushi(),
+        
         ],
+        
         ),
       
         )), //safearea for getting items in right dimensions
+        
     );
       
   }
