@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:sushi_throne/featured_sushi.dart';
+import 'package:sushi_throne/widgets/featured_sushi.dart';
 import 'package:sushi_throne/models/Product.dart';
 class HomePage extends StatelessWidget {
   

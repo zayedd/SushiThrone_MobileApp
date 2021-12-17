@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:sushi_throne/models/Product.dart';
+import 'package:sushi_throne/product_details.dart';
 
 
 
 
 // ignore: must_be_immutable
 class FeaturedSushi extends StatelessWidget{
-   final pm = Product.fetch();
+   
    
    
   
+
 
   
 
@@ -41,6 +43,8 @@ class FeaturedSushi extends StatelessWidget{
     "Salmonss",
     
   ];
+
+   
 //    L
 //ist<Pr
 //oduct> products = [
@@ -146,8 +150,8 @@ class FeaturedSushi extends StatelessWidget{
                                 // ignore: deprecated_member_use
                                 child: RaisedButton(
                                   onPressed: () {
-                                    // Navigator.push(context, MaterialPageRoute(
-                                    //     builder: (context) => DetailsScreen()));
+                                    Navigator.push(context, MaterialPageRoute(
+                                        builder: (context) => const ProductDetails()));
                                   },
                                   color: Color(0xff465465),
                                   shape: RoundedRectangleBorder(
