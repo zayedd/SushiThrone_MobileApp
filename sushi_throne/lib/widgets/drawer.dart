@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:sushi_throne/screens/login.dart';
 class Drawerc extends StatelessWidget {
   const Drawerc({Key? key}) : super(key: key);
 
@@ -28,7 +28,7 @@ class Drawerc extends StatelessWidget {
                   ),
                   SizedBox(height: 15,),
                   Text(
-                    "Youssef Zayed",
+                    "Guest",
                      style: TextStyle(
                      color: Colors.white,
                      fontSize: 15,
@@ -39,12 +39,21 @@ class Drawerc extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    "User",
+                    "",
                     style: TextStyle(fontSize: 12, color: Colors.grey),
                   )
                 ],
               )
             ),
+          ),
+
+          ListTile(
+             leading: Icon(Icons.person),
+            title: const Text('Login'),
+            onTap:(){
+              Navigator.push(context, MaterialPageRoute(
+              builder: (context) => const Login()));
+            },
           ),
           ListTile(
              leading: Icon(Icons.home),

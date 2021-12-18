@@ -43,7 +43,7 @@ class _CartViewState extends State<CartView> {
                 ),
               ),
               Text(
-                '\$ 600',
+                '\EGP 600',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16.0,
@@ -62,7 +62,7 @@ class _CartViewState extends State<CartView> {
                 ),
               ),
               Text(
-                '\$ 30',
+                '\EGP 30',
                 style: TextStyle(
                   fontSize: 16.0,
                 ),
@@ -81,7 +81,7 @@ class _CartViewState extends State<CartView> {
                 ),
               ),
               Text(
-                '\$ 630',
+                '\EGP 630',
                 style: TextStyle(
                   fontSize: 16.0,
                   fontWeight: FontWeight.bold,

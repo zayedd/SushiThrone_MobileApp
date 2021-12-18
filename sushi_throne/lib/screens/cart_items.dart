@@ -103,7 +103,7 @@ class CartItem extends StatelessWidget {
                     ),
                     Spacer(),
                     Text(
-                      '200 \$',
+                      'EGP 200 ',
                       style: TextStyle(
                         fontSize: 16.0,
                         fontWeight: FontWeight.w400,

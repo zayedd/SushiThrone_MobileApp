@@ -44,9 +44,10 @@ class _AddToCartMenuState extends State<AddToCartMenu> {
                 child: Text(
                   '${widget.productCounter}',
                   style: new TextStyle(
-                      fontSize: 12.0,
+                      fontSize: 18.0,
                       color: Colors.black,
-                      fontWeight: FontWeight.w300),
+                      
+                      fontWeight: FontWeight.w700),
                 ),
               ),
             ),
@@ -61,9 +62,13 @@ class _AddToCartMenuState extends State<AddToCartMenu> {
             icon: Icon(Icons.add),
             color: Colors.black,
             iconSize: 18,
+            
           ),
+          
         ],
+        
       ),
+      
     );
   }
 }
