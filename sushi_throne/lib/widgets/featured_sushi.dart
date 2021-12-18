@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sushi_throne/models/Product.dart';
+import 'package:sushi_throne/screens/login.dart';
 import 'package:sushi_throne/screens/product_details.dart';
 import 'package:sushi_throne/widgets/featured_sushi.dart';
 
@@ -59,9 +60,10 @@ class FeaturedSushi extends StatelessWidget{
           itemBuilder: (context, index) {
             return Row(
               children: [
-                Container(
+                InkWell(
+                  child: Container(
                   height: 200,
-                  width: 140,
+                  width: 170,
                   child: Column(
                     children: [
                       SizedBox(
@@ -101,6 +103,7 @@ class FeaturedSushi extends StatelessWidget{
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold),
+                                    textAlign: TextAlign.center,
                               ),
                               SizedBox(
                                 width: 10,
@@ -108,7 +111,7 @@ class FeaturedSushi extends StatelessWidget{
                               ButtonTheme(
                                 minWidth: 20,
                                 height: 20,
-                                // ignore: deprecated_member_use
+                                //ignore: deprecated_member_use
                                 child: RaisedButton(
                                   onPressed: () {
                                     Navigator.push(context, MaterialPageRoute(
@@ -137,12 +140,21 @@ class FeaturedSushi extends StatelessWidget{
                       color: Colors.brown[100],
                       borderRadius: BorderRadius.circular(10)),
                 ),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => const ProductDetails()));
+                },
+                 )
+                ,
                 SizedBox(
                   width: 10,
                 ),
+                
               ],
             );
+            
           }),
+        
     );
   }
 }
