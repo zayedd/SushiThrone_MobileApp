@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cart/cart_items.dart';
+import 'package:sushi_throne/screens/cart_items.dart';
 
 class CartView extends StatefulWidget {
   CartView({Key? key}) : super(key: key);

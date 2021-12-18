@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sushi_throne/homepage.dart';
+import 'package:sushi_throne/screens/homepage.dart';
 
 
 void main() {

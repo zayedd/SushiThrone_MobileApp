@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sushi_throne/models/Product.dart';
-import 'package:sushi_throne/product_details.dart';
-
+import 'package:sushi_throne/screens/product_details.dart';
+import 'package:sushi_throne/widgets/featured_sushi.dart';
 
 
 
@@ -45,47 +45,7 @@ class FeaturedSushi extends StatelessWidget{
   ];
 
    
-//    L
-//ist<Pr
-//oduct> products = [
-//   Product(
-//       id: 0,
-//       name: "Salmon",
-//       price: 234,
-//       description: "sushi",
-//       image: "images/salmon.jpeg",
-      
-//   ),
-//   Product(
-//       id: 1,
-//       name: "Salmon",
-//       price: 234,
-//       description: "sushi",
-//       image: "assets/images/salmon.jpeg",
-      
-//   ),
-//   Product(
-//       id: 2,
-//       name: "Salmon",
-//       price: 234,
-//       description: "sushi",
-//       image: "assets/images/salmon.jpeg",
-      
-//   ),
-//   Product(
-//       id: 3,
-//       name: "Salmon",
-//       price: 234,
-//       description: "sushi",
-//       image: "assets/images/salmon.jpeg",
-      
-//   ),
-// ];
 
-  // FeaturedSushi({Key? key, required this.product}) : super(key: key);
-
-
-  
 
 
   @override
@@ -128,6 +88,7 @@ class FeaturedSushi extends StatelessWidget{
                           ),
                           Row(
                             children: [
+                              
                               Text(
                                 r'EGP',
                                 style: TextStyle(
