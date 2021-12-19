@@ -27,11 +27,11 @@ class _AdminDrawerState extends State<AdminDrawer> {
             ),
           ),
           Text(
-            "Shadow admin",
+            " admin",
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
           Text(
-            "xxxxxxxxxxxxxxxxx",
+            "Email: aaaa",
             style: TextStyle(
               color: Colors.grey[200],
               fontSize: 14,
