@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sushi_throne/screens/homepage.dart';
-import 'package:sushi_throne/screens/login.dart';
+// import 'package:sushi_throne/screens/login.dart';
+import 'package:sushi_throne/screens/admin/admin_home.dart';
 
 
 void main() {
