@@ -1,0 +1,17 @@
+import 'package:flutter/material.dart';
+
+class OffersPage extends StatefulWidget {
+  @override
+  _OffersPageState createState() => _OffersPageState();
+}
+
+class _OffersPageState extends State<OffersPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: Text("offers Page"),
+      ),
+    );
+  }
+}
