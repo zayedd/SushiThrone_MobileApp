@@ -18,23 +18,23 @@ class FeaturedSushi extends StatelessWidget{
 
   
   List<String> image = [
-  "images/salmon.jpg",
-  "images/salmon.jpg",
-  "images/salmon.jpg",
-  "images/salmon.jpg",
-  "images/salmon.jpg",
+  "images/spicy_lemonf.png",
+  "images/calfornia_roll.png",
+  "images/crispy_roll.png",
+  "images/spicy_tuna.png",
+  "images/tuna_ngiri.png",
   ];
 
    List<String> name = [
-    "Salmon",
-    "Salmon",
-    "Salmon",
-    "Salmon",
-    "Salmon",
+    "Spicy Lemon Roll",
+    "Calfornia Roll",
+    "Crispy Roll",
+    "Spicy Tuna",
+    "Tuna Ngiri",
   ];
   List<double
   > price = 
-    [5.50, 5.50 ,5.50, 5.50, 5.50, 5.50];
+    [40, 50 ,55, 45, 60, 70];
 
   List<String> desc = [
     "Salmonzz",
@@ -52,7 +52,7 @@ class FeaturedSushi extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      flex: 2,
+      flex: 3,
       child: ListView.builder(
           shrinkWrap: true,
           itemCount: image.length,
@@ -67,11 +67,11 @@ class FeaturedSushi extends StatelessWidget{
                   child: Column(
                     children: [
                       SizedBox(
-                        height: 10,
+                        height: 5,
                       ),
                       Image.asset(
                         image[index],
-                        height: 100,
+                        height: 110,
                       ),
                       SizedBox(height: 10,),
                       Text(

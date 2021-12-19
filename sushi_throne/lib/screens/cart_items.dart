@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CartItem extends StatelessWidget {
-  CartItem({Key? key});
+class CartItem extends StatefulWidget {
+  int productCounter = 4;
+  
+  @override
+  State<CartItem> createState() => _CartItemState();
+}
 
+class _CartItemState extends State<CartItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -65,7 +70,13 @@ class CartItem extends StatelessWidget {
                 SizedBox(height: 8.0),
                 Row(
                   children: [
-                    Container(
+                    InkWell( onTap: (){
+                       setState(() {
+                if(widget.productCounter!=4)
+                widget.productCounter = widget.productCounter-4;
+                 });
+                },
+                  child:Container(
                       width: 20.0,
                       height: 20.0,
                       decoration: BoxDecoration(
@@ -73,22 +84,30 @@ class CartItem extends StatelessWidget {
                         borderRadius: BorderRadius.circular(4.0),
                       ),
                       child: Icon(
-                        Icons.add,
+                        Icons.remove,
                         color: Colors.white,
                         size: 15.0,
                       ),
                     ),
+                  ),
+                    
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Text(
-                        '1',
+                        '${widget.productCounter}',
                         style: TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
                     ),
-                    Container(
+                    InkWell(
+                      onTap: (){
+                        setState(() {
+                          widget.productCounter = widget.productCounter+4;
+                        });
+                      },
+                       child:  Container(
                       width: 20.0,
                       height: 20.0,
                       decoration: BoxDecoration(
@@ -100,7 +119,9 @@ class CartItem extends StatelessWidget {
                         color: Colors.white,
                         size: 15.0,
                       ),
+                     ),
                     ),
+                   
                     Spacer(),
                     Text(
                       'EGP 200 ',
