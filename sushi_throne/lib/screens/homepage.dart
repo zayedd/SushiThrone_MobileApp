@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text("Welcome Youssef", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              Text("Welcome Guest", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ],
           ),

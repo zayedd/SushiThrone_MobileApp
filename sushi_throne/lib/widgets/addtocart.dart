@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class AddToCartMenu extends StatefulWidget {
   int productCounter;
 
@@ -9,10 +10,6 @@ class AddToCartMenu extends StatefulWidget {
 }
 
 class _AddToCartMenuState extends State<AddToCartMenu> {
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,10 +19,10 @@ class _AddToCartMenuState extends State<AddToCartMenu> {
           IconButton(
             onPressed: () {
               setState(() {
-                if(widget.productCounter!=0)
-                widget.productCounter = widget.productCounter-4;
+                if (widget.productCounter != 0)
+                  widget.productCounter = widget.productCounter - 4;
               });
-              },
+            },
             icon: Icon(Icons.remove),
             color: Colors.black,
             iconSize: 18,
@@ -46,7 +43,6 @@ class _AddToCartMenuState extends State<AddToCartMenu> {
                   style: new TextStyle(
                       fontSize: 18.0,
                       color: Colors.black,
-                      
                       fontWeight: FontWeight.w700),
                 ),
               ),
@@ -55,20 +51,15 @@ class _AddToCartMenuState extends State<AddToCartMenu> {
           IconButton(
             onPressed: () {
               setState(() {
-                
-                widget.productCounter = widget.productCounter+4;
+                widget.productCounter = widget.productCounter + 4;
               });
             },
             icon: Icon(Icons.add),
             color: Colors.black,
             iconSize: 18,
-            
           ),
-          
         ],
-        
       ),
-      
     );
   }
 }

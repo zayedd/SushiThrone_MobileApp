@@ -10,10 +10,14 @@ class Register extends StatelessWidget {
       title: appTitle,
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.red,
-          centerTitle: true,
-          title: const Text(appTitle),
-        ),
+        backgroundColor: Colors.blueGrey[100],
+        iconTheme: IconThemeData(
+          color: Colors.black,
+      ),
+      elevation: 0,
+      actions: <Widget>[
+       ],
+    ),
         body: const MyCustomForm(),
       ),
     );
