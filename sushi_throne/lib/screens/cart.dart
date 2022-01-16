@@ -27,9 +27,6 @@ class _CartViewState extends State<CartView> {
         padding: const EdgeInsets.all(16.0),
         children: [
           CartItem(),
-          CartItem(),
-          CartItem(),
-          CartItem(),
           SizedBox(height: 20.0),
           Divider(),
           Row(
@@ -43,7 +40,7 @@ class _CartViewState extends State<CartView> {
                 ),
               ),
               Text(
-                '\EGP 600',
+                '\EGP 200',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16.0,
@@ -81,7 +78,7 @@ class _CartViewState extends State<CartView> {
                 ),
               ),
               Text(
-                '\EGP 630',
+                '\EGP 230',
                 style: TextStyle(
                   fontSize: 16.0,
                   fontWeight: FontWeight.bold,

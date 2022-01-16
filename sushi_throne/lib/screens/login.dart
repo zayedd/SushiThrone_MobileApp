@@ -3,6 +3,7 @@ import 'package:sushi_throne/screens/homepage.dart';
 import 'package:sushi_throne/widgets/appbar.dart';
 import '/screens/register.dart';
 import '/screens/admin/admin_home.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -54,12 +55,21 @@ class _LoginState extends State<Login> {
                         child: Form(
                           key: formkey,
                           child: TextFormField(
+                            // ignore: deprecated_member_use
+                            autovalidate: true,
+                            validator: MultiValidator([
+                              EmailValidator(errorText: "Not a valid Email"),
+                              RequiredValidator(errorText: "Required"),
+                            ]),
                             // validator: adminv(),
-                            validator: (value) {
-                              if (value == "admin") {
-                                isAdmin = true;
-                              }
-                            },
+                            // validator: (value) {
+                            //   if (value == "admin") {
+                            //     isAdmin = true;
+                            //   }
+                            //   if (value!.isEmpty) {
+                            //     return "required";
+                            //   }
+                            // },
                             decoration: InputDecoration(
                               border: OutlineInputBorder(),
                               hintText: 'Email',
@@ -74,6 +84,9 @@ class _LoginState extends State<Login> {
                       child: Material(
                         child: Form(
                             child: TextFormField(
+                          validator: MinLengthValidator(6,
+                              errorText:
+                                  "Password should be at least 6 charcaters"),
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: 'Password',

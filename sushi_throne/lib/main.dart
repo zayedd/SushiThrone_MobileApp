@@ -3,7 +3,6 @@ import 'package:sushi_throne/screens/homepage.dart';
 // import 'package:sushi_throne/screens/login.dart';
 import 'package:sushi_throne/screens/admin/admin_home.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -18,11 +17,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'SS',
       theme: ThemeData(
-     
         primarySwatch: Colors.blue,
       ),
       home: AdminHome(),
-      
     );
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CartItem extends StatefulWidget {
   int productCounter = 4;
-  
+
   @override
   State<CartItem> createState() => _CartItemState();
 }
@@ -27,12 +27,11 @@ class _CartItemState extends State<CartItem> {
                 ),
                 child: Center(
                   child: Container(
-                    width: 60.0,
-                    height: 60.0,
+                    width: 100.0,
+                    height: 80.0,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage(
-                            'assets/sushi.jpg'),
+                        image: AssetImage('images/spicy_lemonf.png'),
                         fit: BoxFit.scaleDown,
                       ),
                     ),
@@ -52,7 +51,7 @@ class _CartItemState extends State<CartItem> {
                     Container(
                       width: 100.0,
                       child: Text(
-                        'Sushi',
+                        'Spicy Lemon Roll',
                         style: TextStyle(
                           fontWeight: FontWeight.w400,
                         ),
@@ -70,27 +69,27 @@ class _CartItemState extends State<CartItem> {
                 SizedBox(height: 8.0),
                 Row(
                   children: [
-                    InkWell( onTap: (){
-                       setState(() {
-                if(widget.productCounter!=4)
-                widget.productCounter = widget.productCounter-4;
-                 });
-                },
-                  child:Container(
-                      width: 20.0,
-                      height: 20.0,
-                      decoration: BoxDecoration(
-                        color: Colors.grey[300],
-                        borderRadius: BorderRadius.circular(4.0),
-                      ),
-                      child: Icon(
-                        Icons.remove,
-                        color: Colors.white,
-                        size: 15.0,
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          if (widget.productCounter != 4)
+                            widget.productCounter = widget.productCounter - 4;
+                        });
+                      },
+                      child: Container(
+                        width: 20.0,
+                        height: 20.0,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[300],
+                          borderRadius: BorderRadius.circular(4.0),
+                        ),
+                        child: Icon(
+                          Icons.remove,
+                          color: Colors.white,
+                          size: 15.0,
+                        ),
                       ),
                     ),
-                  ),
-                    
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Text(
@@ -102,26 +101,25 @@ class _CartItemState extends State<CartItem> {
                       ),
                     ),
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         setState(() {
-                          widget.productCounter = widget.productCounter+4;
+                          widget.productCounter = widget.productCounter + 4;
                         });
                       },
-                       child:  Container(
-                      width: 20.0,
-                      height: 20.0,
-                      decoration: BoxDecoration(
-                        color: Colors.red[300],
-                        borderRadius: BorderRadius.circular(4.0),
+                      child: Container(
+                        width: 20.0,
+                        height: 20.0,
+                        decoration: BoxDecoration(
+                          color: Colors.red[300],
+                          borderRadius: BorderRadius.circular(4.0),
+                        ),
+                        child: Icon(
+                          Icons.add,
+                          color: Colors.white,
+                          size: 15.0,
+                        ),
                       ),
-                      child: Icon(
-                        Icons.add,
-                        color: Colors.white,
-                        size: 15.0,
-                      ),
-                     ),
                     ),
-                   
                     Spacer(),
                     Text(
                       'EGP 200 ',
