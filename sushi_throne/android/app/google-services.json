@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "972798108523",
+    "project_id": "sushithrone-ef921",
+    "storage_bucket": "sushithrone-ef921.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:972798108523:android:9d61c99921b9ddf7e8e22e",
+        "android_client_info": {
+          "package_name": "com.example.sushi_throne"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "972798108523-jeme6vd660t5rp82q3bdqqr92cgaq505.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfDBk4mDoBQnaCvt_lR4JF8grA1xz_hVI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "972798108523-jeme6vd660t5rp82q3bdqqr92cgaq505.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
