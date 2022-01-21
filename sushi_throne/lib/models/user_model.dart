@@ -1,12 +1,13 @@
 class UserModel {
-  final String userName;
-  final String userEmail;
-  final String userImage;
-  
+  String userName;
+  String userEmail;
+  String userImage;
+  String userUid;
 
-  UserModel(
-    this.userEmail,
-    this.userImage,
-    this.userName,
-  );
+  UserModel({
+    required this.userEmail,
+    required this.userImage,
+    required this.userName,
+    required this.userUid,
+  });
 }

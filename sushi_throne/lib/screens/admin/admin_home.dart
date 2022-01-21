@@ -11,6 +11,8 @@ class AdminHome extends StatefulWidget {
   _AdminHomeState createState() => _AdminHomeState();
 }
 
+
+
 class _AdminHomeState extends State<AdminHome> {
   var currentPage = DrawerSections.dashboard;
 
@@ -28,9 +30,11 @@ class _AdminHomeState extends State<AdminHome> {
     }
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.blue[700], title: Text("Shadow admin")),
-      body: container,
-      drawer: Drawer(
+        backgroundColor: Colors.blue[700],
+        title: Text("Shadow admin")
+        ),
+        body: container,
+        drawer: Drawer(
         child: SingleChildScrollView(
           child: Container(
             child: Column(
@@ -44,8 +48,8 @@ class _AdminHomeState extends State<AdminHome> {
       ),
     );
   }
-
-  Widget MyDrawerList() {
+  
+   Widget MyDrawerList() {
     return Container(
       padding: EdgeInsets.only(
         top: 15,
@@ -64,6 +68,7 @@ class _AdminHomeState extends State<AdminHome> {
           Divider(),
           menuItem(4, "complaints", Icons.accessibility_new_rounded,
               currentPage == DrawerSections.complaints ? true : false),
+
         ],
       ),
     );
@@ -115,3 +120,6 @@ class _AdminHomeState extends State<AdminHome> {
     );
   }
 }
+
+
+
