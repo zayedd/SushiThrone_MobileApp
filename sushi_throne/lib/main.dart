@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:sushi_throne/screens/homepage.dart';
 import 'package:sushi_throne/screens/login.dart';
+import 'package:sushi_throne/screens/map.dart';
 import 'package:sushi_throne/screens/register.dart';
 
 // import 'package:sushi_throne/screens/login.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Login(),
+      home: MapSample(),
     );
   }
 }
