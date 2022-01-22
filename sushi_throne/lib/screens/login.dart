@@ -4,6 +4,10 @@ import 'package:sushi_throne/widgets/appbar.dart';
 import '/screens/register.dart';
 import '/screens/admin/admin_home.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+//import 'package:awesome_dialog/awesome_dialog.dart';
+//import 'package:sushi_throne/components/loading.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -13,7 +17,38 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  GlobalKey<FormState> formkey = GlobalKey<FormState>();
+  var email, password;
+  GlobalKey<FormState> formstate = new GlobalKey<FormState>();
+  signIn() async {
+    var formdata = formstate.currentState;
+    if (formdata!.validate()) {
+      formdata.save();
+      try {
+        //showLoading(context);
+        UserCredential userCredential = await FirebaseAuth.instance
+            .signInWithEmailAndPassword(email: email, password: password);
+        return userCredential;
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'user-not-found') {
+          Navigator.of(context).pop();
+          /*AwesomeDialog(
+              context: context,
+              title: "Error",
+              body: Text("No user found for that email"))
+            ..show();
+        } else if (e.code == 'wrong-password') {
+          Navigator.of(context).pop();
+          AwesomeDialog(
+              context: context,
+              title: "Error",
+              body: Text("Wrong password provided for that user"))
+            ..show();*/
+        }
+      }
+    } else {
+      print("Not Vaild");
+    }
+  }
 
   bool isAdmin = false;
   // void adminv(value) {
@@ -26,103 +61,98 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.blueGrey[100],
-          iconTheme: IconThemeData(
-            color: Colors.black,
-          ),
-          elevation: 0,
-          actions: <Widget>[
-            //   IconButton(onPressed:() { Navigator.push(context, MaterialPageRoute(
-            //                                   builder: (context) =>  CartView()));} , icon: Icon(Icons.shopping_cart))
-          ],
-        ),
-        backgroundColor: Color(0xffe5e1d5),
-        body: SafeArea(
-            child: Padding(
-                padding: EdgeInsets.all(16),
+      //
+      body: ListView(
+        children: [
+          Center(child: Image.asset("images/logo.png")),
+          Container(
+            padding: EdgeInsets.all(20),
+            child: Form(
+                key: formstate,
                 child: Column(
-                  children: <Widget>[
-                    Image(
-                      image: AssetImage('images/logo.png'),
-                      width: 200,
-                      height: 150,
+                  children: [
+                    TextFormField(
+                      onSaved: (val) {
+                        email = val;
+                      },
+                      validator: (val) {
+                        if (val!.length > 100) {
+                          return "Email can't to be larger than 100 letter";
+                        }
+                        if (val!.length < 2) {
+                          return "Email can't to be less than 2 letter";
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.person),
+                          hintText: "Email",
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide(width: 1))),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                      child: Material(
-                        child: Form(
-                          key: formkey,
-                          child: TextFormField(
-                            // ignore: deprecated_member_use
-                            autovalidate: true,
-                            validator: MultiValidator([
-                              EmailValidator(errorText: "Not a valid Email"),
-                              RequiredValidator(errorText: "Required"),
-                            ]),
-                            // validator: adminv(),
-                            // validator: (value) {
-                            //   if (value == "admin") {
-                            //     isAdmin = true;
-                            //   }
-                            //   if (value!.isEmpty) {
-                            //     return "required";
-                            //   }
-                            // },
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              hintText: 'Email',
-                            ),
-                          ),
-                        ),
-                      ),
+                    SizedBox(height: 20),
+                    TextFormField(
+                      onSaved: (val) {
+                        password = val;
+                      },
+                      validator: (val) {
+                        if (val!.length > 100) {
+                          return "Password can't to be larger than 100 letter";
+                        }
+                        if (val!.length < 4) {
+                          return "Password can't to be less than 4 letter";
+                        }
+                        return null;
+                      },
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.person),
+                          hintText: "password",
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide(width: 1))),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                      child: Material(
-                        child: Form(
-                            child: TextFormField(
-                          validator: MinLengthValidator(6,
-                              errorText:
-                                  "Password should be at least 6 charcaters"),
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'Password',
-                          ),
+                    Container(
+                        margin: EdgeInsets.all(10),
+                        child: Row(
+                          children: [
+                            Text("if you have no accout "),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const Register()));
+                              },
+                              child: Text(
+                                "Click Here",
+                                style: TextStyle(color: Colors.blue),
+                              ),
+                            )
+                          ],
                         )),
-                      ),
-                    ),
-                    ElevatedButton(
-                      child: Text("Login"),
-                      onPressed: () {
-                        if (isAdmin) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AdminHome()));
-                        } else {
+                    Container(
+                        child: RaisedButton(
+                      textColor: Colors.white,
+                      onPressed: () async {
+                        var user = await signIn();
+                        if (user != null) {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => HomePage()));
                         }
                       },
-                    ),
-                    ElevatedButton(
-                        child: Text("Want an account ?"),
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.red),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Register()),
-                          );
-                        })
+                      child: Text(
+                        "Sign in",
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                    ))
                   ],
-                ))));
+                )),
+          )
+        ],
+      ),
+    );
   }
 }

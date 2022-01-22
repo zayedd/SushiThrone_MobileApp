@@ -82,6 +82,13 @@ class Drawerc extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
+            ListTile(
+              leading: Icon(Icons.favorite_outline),
+              title: const Text('Favourites'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
           ],
         ),
       ),
