@@ -21,18 +21,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-   
       debugShowCheckedModeBanner: false,
       title: 'SS',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-<<<<<<< Updated upstream
-      home: //AdminHome()
-      HomePage(),
-=======
       home: Login(),
->>>>>>> Stashed changes
     );
   }
 }
