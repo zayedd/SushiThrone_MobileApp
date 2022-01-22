@@ -41,7 +41,7 @@ class _LoginState extends State<Login> {
         body: SafeArea(
             child: Padding(
                 padding: EdgeInsets.all(16),
-                child: Column(
+                child: ListView(
                   children: <Widget>[
                     Image(
                       image: AssetImage('images/logo.png'),
