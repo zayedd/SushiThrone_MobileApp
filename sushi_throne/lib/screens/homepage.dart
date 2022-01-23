@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:sushi_throne/widgets/drawer.dart';
 import 'package:sushi_throne/widgets/featured_sushi.dart';
-import 'package:sushi_throne/models/Product.dart';
+import 'package:sushi_throne/models/Product_model.dart';
 import '/widgets/appbar.dart';
 import '/screens/cart.dart';
 class HomePage extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sushi_throne/models/Product.dart';
+import 'package:sushi_throne/models/Product_model.dart';
 import 'package:sushi_throne/screens/login.dart';
 import 'package:sushi_throne/screens/product_details.dart';
 import 'package:sushi_throne/widgets/featured_sushi.dart';

@@ -14,9 +14,10 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register> {
   var myusername, mypassword, myemail;
+
   GlobalKey<FormState> formstate = new GlobalKey<FormState>();
 
-  signUp() async {
+  signup() async {
     var formdata = formstate.currentState;
     if (formdata!.validate()) {
       formdata.save();
@@ -175,7 +176,7 @@ class _RegisterState extends State<Register> {
                           child: RaisedButton(
                         textColor: Colors.white,
                         onPressed: () async {
-                          UserCredential response = await signUp();
+                          UserCredential response = await signup();
                           print("===================");
                           if (response != null) {
                             await FirebaseFirestore.instance

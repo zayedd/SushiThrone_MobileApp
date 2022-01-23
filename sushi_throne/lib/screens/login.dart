@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sushi_throne/screens/admin/adminn.dart';
 import 'package:sushi_throne/screens/homepage.dart';
 import 'package:sushi_throne/widgets/appbar.dart';
 import '/screens/register.dart';
-import '/screens/admin/admin_home.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -18,6 +18,8 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   var email, password;
+  late UserCredential userCredential;
+
   GlobalKey<FormState> formstate = new GlobalKey<FormState>();
   signIn() async {
     var formdata = formstate.currentState;
@@ -25,7 +27,7 @@ class _LoginState extends State<Login> {
       formdata.save();
       try {
         //showLoading(context);
-        UserCredential userCredential = await FirebaseAuth.instance
+         userCredential = await FirebaseAuth.instance
             .signInWithEmailAndPassword(email: email, password: password);
         return userCredential;
       } on FirebaseAuthException catch (e) {
@@ -136,7 +138,13 @@ class _LoginState extends State<Login> {
                       textColor: Colors.white,
                       onPressed: () async {
                         var user = await signIn();
-                        if (user != null) {
+                        if (userCredential.user!.uid =='wDlkc9qzmpa9SfO6lqiYrIHxkqD2' ) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Admin()));
+                        }
+                        else if (user != null) {
                           Navigator.push(
                               context,
                               MaterialPageRoute(

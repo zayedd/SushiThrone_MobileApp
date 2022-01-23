@@ -6,7 +6,7 @@ import 'package:sushi_throne/screens/map.dart';
 import 'package:sushi_throne/screens/register.dart';
 
 // import 'package:sushi_throne/screens/login.dart';
-import 'package:sushi_throne/screens/admin/admin_home.dart';
+import 'package:sushi_throne/screens/admin/adminn.dart';
 // //import 'firebase_options.dart';
 
 void main() async {
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MapSample(),
+      home: HomePage(),
     );
   }
 }
