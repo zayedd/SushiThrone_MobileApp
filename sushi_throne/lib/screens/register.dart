@@ -142,6 +142,7 @@ class _RegisterState extends State<Register> {
                       SizedBox(height: 20),
                       TextFormField(
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                         // obscureText: true,
 =======
                         onSaved: (val) {
@@ -156,6 +157,8 @@ class _RegisterState extends State<Register> {
                           }
                           return null;
                         },
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                         decoration: InputDecoration(
                             prefixIcon: Icon(Icons.phone_android),
@@ -172,6 +175,7 @@ class _RegisterState extends State<Register> {
                       SizedBox(height: 20),
                       TextFormField(
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                         // obscureText: true,
 =======
                         onSaved: (val) {
@@ -186,6 +190,8 @@ class _RegisterState extends State<Register> {
                           }
                           return null;
                         },
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                         decoration: InputDecoration(
                             prefixIcon: Icon(Icons.pin_drop_outlined),
@@ -228,6 +234,7 @@ class _RegisterState extends State<Register> {
                           if (response != null) {
                             await FirebaseFirestore.instance
                                 .collection("users")
+<<<<<<< Updated upstream
                                 .add({
                               "username": myusername,
                               "email": myemail,
@@ -238,6 +245,14 @@ class _RegisterState extends State<Register> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const Login()));
+=======
+                                .add(
+                                    {"username": myusername, "email": myemail});
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Login()));
+>>>>>>> Stashed changes
                           } else {
                             print("Sign Up Failed");
                           }
