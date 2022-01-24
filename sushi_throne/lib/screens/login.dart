@@ -6,7 +6,7 @@ import '/screens/register.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:awesome_dialog/awesome_dialog.dart';
+//import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:sushi_throne/components/loading.dart';
 //import 'package:awesome_dialog/awesome_dialog.dart';
 //import 'package:sushi_throne/components/loading.dart';
@@ -32,30 +32,25 @@ class _LoginState extends State<Login> {
     if (formdata!.validate()) {
       formdata.save();
       try {
-<<<<<<< Updated upstream
-        //showLoading(context);
-         userCredential = await FirebaseAuth.instance
-=======
         showLoading(context);
         UserCredential userCredential = await FirebaseAuth.instance
->>>>>>> Stashed changes
             .signInWithEmailAndPassword(email: email, password: password);
         return userCredential;
       } on FirebaseAuthException catch (e) {
         if (e.code == 'user-not-found') {
           Navigator.of(context).pop();
-          AwesomeDialog(
-              context: context,
-              title: "Error",
-              body: Text("No user found for that email"))
-            ..show();
+          // AwesomeDialog(
+          //     context: context,
+          //     title: "Error",
+          //     body: Text("No user found for that email"))
+          //   ..show();
         } else if (e.code == 'wrong-password') {
           Navigator.of(context).pop();
-          AwesomeDialog(
-              context: context,
-              title: "Error",
-              body: Text("Wrong password provided for that user"))
-            ..show();
+          // AwesomeDialog(
+          //     context: context,
+          //     title: "Error",
+          //     body: Text("Wrong password provided for that user"))
+          //   ..show();
         }
       }
     } else {
@@ -149,13 +144,11 @@ class _LoginState extends State<Login> {
                       textColor: Colors.white,
                       onPressed: () async {
                         var user = await signIn();
-                        if (userCredential.user!.uid =='wDlkc9qzmpa9SfO6lqiYrIHxkqD2' ) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Admin()));
-                        }
-                        else if (user != null) {
+                        if (userCredential.user!.uid ==
+                            'wDlkc9qzmpa9SfO6lqiYrIHxkqD2') {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Admin()));
+                        } else if (user != null) {
                           Navigator.push(
                               context,
                               MaterialPageRoute(

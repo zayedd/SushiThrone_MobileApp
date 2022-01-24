@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:awesome_dialog/awesome_dialog.dart';
+//import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sushi_throne/screens/login.dart';
 import 'package:sushi_throne/components/loading.dart';
@@ -14,12 +14,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-<<<<<<< Updated upstream
-  var myusername, mypassword, myemail;
-
-=======
   var myusername, mypassword, myemail, myphone, myaddress;
->>>>>>> Stashed changes
   GlobalKey<FormState> formstate = new GlobalKey<FormState>();
 
   signup() async {
@@ -36,18 +31,18 @@ class _RegisterState extends State<Register> {
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {
           Navigator.of(context).pop();
-          AwesomeDialog(
-              context: context,
-              title: "Error",
-              body: Text("Password is too weak"))
-            ..show();
+          // AwesomeDialog(
+          //     context: context,
+          //     title: "Error",
+          //     body: Text("Password is too weak"))
+          //   ..show();
         } else if (e.code == 'email-already-in-use') {
           Navigator.of(context).pop();
-          AwesomeDialog(
-              context: context,
-              title: "Error",
-              body: Text("The account already exists for that email"))
-            ..show();
+          // AwesomeDialog(
+          //     context: context,
+          //     title: "Error",
+          //     body: Text("The account already exists for that email"))
+          //   ..show();
         }
       } catch (e) {
         print(e);
@@ -141,10 +136,6 @@ class _RegisterState extends State<Register> {
                       ),
                       SizedBox(height: 20),
                       TextFormField(
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                        // obscureText: true,
-=======
                         onSaved: (val) {
                           myphone = val;
                         },
@@ -157,9 +148,7 @@ class _RegisterState extends State<Register> {
                           }
                           return null;
                         },
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
                         decoration: InputDecoration(
                             prefixIcon: Icon(Icons.phone_android),
                             hintText: "Phone Number",
@@ -174,10 +163,6 @@ class _RegisterState extends State<Register> {
                       ),
                       SizedBox(height: 20),
                       TextFormField(
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                        // obscureText: true,
-=======
                         onSaved: (val) {
                           myaddress = val;
                         },
@@ -190,9 +175,6 @@ class _RegisterState extends State<Register> {
                           }
                           return null;
                         },
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
                         decoration: InputDecoration(
                             prefixIcon: Icon(Icons.pin_drop_outlined),
                             hintText: "Address",
@@ -234,7 +216,6 @@ class _RegisterState extends State<Register> {
                           if (response != null) {
                             await FirebaseFirestore.instance
                                 .collection("users")
-<<<<<<< Updated upstream
                                 .add({
                               "username": myusername,
                               "email": myemail,
@@ -245,14 +226,11 @@ class _RegisterState extends State<Register> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const Login()));
-=======
-                                .add(
-                                    {"username": myusername, "email": myemail});
+
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => Login()));
->>>>>>> Stashed changes
                           } else {
                             print("Sign Up Failed");
                           }
