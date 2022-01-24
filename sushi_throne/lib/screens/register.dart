@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-//import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sushi_throne/screens/login.dart';
-//import 'package:sushi_throne/components/loading.dart';
+import 'package:sushi_throne/components/loading.dart';
+import 'package:sushi_throne/screens/homepage.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -13,8 +14,12 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+<<<<<<< Updated upstream
   var myusername, mypassword, myemail;
 
+=======
+  var myusername, mypassword, myemail, myphone, myaddress;
+>>>>>>> Stashed changes
   GlobalKey<FormState> formstate = new GlobalKey<FormState>();
 
   signup() async {
@@ -23,7 +28,7 @@ class _RegisterState extends State<Register> {
       formdata.save();
 
       try {
-        //showLoading(context);
+        showLoading(context);
         UserCredential userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(
                 email: myemail, password: mypassword);
@@ -31,10 +36,10 @@ class _RegisterState extends State<Register> {
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {
           Navigator.of(context).pop();
-          /*AwesomeDialog(
+          AwesomeDialog(
               context: context,
               title: "Error",
-              body: Text("Password is to weak"))
+              body: Text("Password is too weak"))
             ..show();
         } else if (e.code == 'email-already-in-use') {
           Navigator.of(context).pop();
@@ -42,7 +47,7 @@ class _RegisterState extends State<Register> {
               context: context,
               title: "Error",
               body: Text("The account already exists for that email"))
-            ..show();*/
+            ..show();
         }
       } catch (e) {
         print(e);
@@ -136,21 +141,63 @@ class _RegisterState extends State<Register> {
                       ),
                       SizedBox(height: 20),
                       TextFormField(
-                        obscureText: true,
+<<<<<<< Updated upstream
+                        // obscureText: true,
+=======
+                        onSaved: (val) {
+                          myphone = val;
+                        },
+                        validator: (val) {
+                          if (val!.length > 100) {
+                            return "Phone Number can't to be larger than 100 numbers";
+                          }
+                          if (val!.length < 11) {
+                            return "Phone Number can't to be less than 11 numbers";
+                          }
+                          return null;
+                        },
+>>>>>>> Stashed changes
                         decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.pin_drop),
-                            hintText: "address",
-                            border: OutlineInputBorder(
-                                borderSide: BorderSide(width: 1))),
-                      ),
-                      SizedBox(height: 20),
-                      TextFormField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.mobile_friendly_outlined),
+                            prefixIcon: Icon(Icons.phone_android),
                             hintText: "Phone Number",
                             border: OutlineInputBorder(
                                 borderSide: BorderSide(width: 1))),
+                        // obscureText: true,
+                        // decoration: InputDecoration(
+                        //     prefixIcon: Icon(Icons.pin_drop),
+                        //     hintText: "address",
+                        //     border: OutlineInputBorder(
+                        //         borderSide: BorderSide(width: 1))),
+                      ),
+                      SizedBox(height: 20),
+                      TextFormField(
+<<<<<<< Updated upstream
+                        // obscureText: true,
+=======
+                        onSaved: (val) {
+                          myaddress = val;
+                        },
+                        validator: (val) {
+                          if (val!.length > 100) {
+                            return "Address can't to be larger than 11 characters";
+                          }
+                          if (val!.length < 11) {
+                            return "Address can't to be less than 11 charcters";
+                          }
+                          return null;
+                        },
+>>>>>>> Stashed changes
+                        decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.pin_drop_outlined),
+                            hintText: "Address",
+                            border: OutlineInputBorder(
+                                borderSide: BorderSide(width: 1))),
+                        // obscureText: true,
+                        // decoration: InputDecoration(
+                        //     prefixIcon: Icon(Icons.mobile_friendly_outlined),
+                        //     hintText: "Phone Number",
+                        //     border: OutlineInputBorder(
+                        //         borderSide: BorderSide(width: 1))),
                       ),
                       Container(
                           margin: EdgeInsets.all(10),
@@ -181,10 +228,16 @@ class _RegisterState extends State<Register> {
                           if (response != null) {
                             await FirebaseFirestore.instance
                                 .collection("users")
-                                .add(
-                                    {"username": myusername, "email": myemail});
-                            Navigator.of(context)
-                                .pushReplacementNamed("homepage");
+                                .add({
+                              "username": myusername,
+                              "email": myemail,
+                              "phonenum": myphone,
+                              "address": myaddress
+                            });
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Login()));
                           } else {
                             print("Sign Up Failed");
                           }

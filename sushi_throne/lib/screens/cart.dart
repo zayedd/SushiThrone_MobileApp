@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sushi_throne/screens/cart_items.dart';
+import 'package:sushi_throne/screens/checkout1.dart';
 
 class CartView extends StatefulWidget {
   CartView({Key? key}) : super(key: key);
@@ -89,7 +90,12 @@ class _CartViewState extends State<CartView> {
           Spacer(),
           SizedBox(height: 10.0),
           MaterialButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const MyStatefulWidget()));
+            },
             color: Colors.red,
             height: 50.0,
             minWidth: double.infinity,

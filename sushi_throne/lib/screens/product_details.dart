@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '/widgets/featured_sushi.dart';
 import '/widgets/addtocart.dart';
 import 'package:sushi_throne/screens/cart.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProductDetails extends StatefulWidget {
   const ProductDetails({Key? key}) : super(key: key);
@@ -11,6 +12,27 @@ class ProductDetails extends StatefulWidget {
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
+  List products = [];
+  CollectionReference prodref =
+      FirebaseFirestore.instance.collection("products");
+
+  _ProductDetailsState();
+  getData() async {
+    var responsebody = await prodref.get();
+    responsebody.docs.forEach((element) {
+      setState(() {
+        products.add(element.data());
+      });
+    });
+    print(products);
+  }
+
+  @override
+  void initState() {
+    getData();
+    super.initState();
+  }
+
   bool isFavourite = false;
   int i = 0;
   @override

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sushi_throne/screens/login.dart';
+import 'package:sushi_throne/screens/map.dart';
 
 class Drawerc extends StatelessWidget {
   const Drawerc({Key? key}) : super(key: key);
@@ -59,6 +60,15 @@ class Drawerc extends StatelessWidget {
               title: const Text('Home'),
               onTap: () {
                 Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.pin_drop),
+              title: const Text('Our Location'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => MapSample()));
+                ;
               },
             ),
             ListTile(

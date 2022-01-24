@@ -6,6 +6,8 @@ import '/screens/register.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:sushi_throne/components/loading.dart';
 //import 'package:awesome_dialog/awesome_dialog.dart';
 //import 'package:sushi_throne/components/loading.dart';
 
@@ -17,23 +19,32 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passController = TextEditingController();
+
   var email, password;
   late UserCredential userCredential;
 
   GlobalKey<FormState> formstate = new GlobalKey<FormState>();
+
   signIn() async {
     var formdata = formstate.currentState;
     if (formdata!.validate()) {
       formdata.save();
       try {
+<<<<<<< Updated upstream
         //showLoading(context);
          userCredential = await FirebaseAuth.instance
+=======
+        showLoading(context);
+        UserCredential userCredential = await FirebaseAuth.instance
+>>>>>>> Stashed changes
             .signInWithEmailAndPassword(email: email, password: password);
         return userCredential;
       } on FirebaseAuthException catch (e) {
         if (e.code == 'user-not-found') {
           Navigator.of(context).pop();
-          /*AwesomeDialog(
+          AwesomeDialog(
               context: context,
               title: "Error",
               body: Text("No user found for that email"))
@@ -44,7 +55,7 @@ class _LoginState extends State<Login> {
               context: context,
               title: "Error",
               body: Text("Wrong password provided for that user"))
-            ..show();*/
+            ..show();
         }
       }
     } else {
@@ -101,8 +112,8 @@ class _LoginState extends State<Login> {
                         if (val!.length > 100) {
                           return "Password can't to be larger than 100 letter";
                         }
-                        if (val!.length < 4) {
-                          return "Password can't to be less than 4 letter";
+                        if (val!.length < 8) {
+                          return "Password can't to be less than 8 letter";
                         }
                         return null;
                       },
